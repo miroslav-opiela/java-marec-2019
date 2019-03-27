@@ -1,6 +1,6 @@
 Vytvorte nasledovné metódy:
 
-- V reťazci `sedi mucha na stene` nahraďte všetky výskyty písmena `a` písmenom `e`. Modifikujte metódu podľa pokynov - zmena parametrov, návratový typ.  
+- V reťazci `tancuj vykrucaj` nahraďte všetky výskyty písmena `r` písmenom `l`. Modifikujte metódu podľa pokynov - zmena parametrov (žiaden parameter, jeden parameter typu String, doplnenie o ďalší parameter typu char), návratový typ.  
 
 - Pre zadaný reťazec vytvorte skratku zloženú z jeho prvých 3 písmen. Skratka je písaná veľkými písmenami.
 	- Príklad: `java` -> `JAV`, `Slovenská republika` -> `SLO`  	
@@ -29,10 +29,10 @@ public String reverseString(String s)
 public int numbersCount(String s)
 ```
 
-- Metóda rozhodne, či zadaný reťazec obsahuje dve medzery idúce za sebou.
-	- Príklad (znak `*` tentokrát pre lepšiu predstavivosť reprezentuje medzeru): `Dve**medzery` -> `true`, `Tri_medzery***` -> `true`, `bezMedzier` -> `false`
+- Overí, či sú všetky písmená v reťazci rovnaké. Nevzťahuje sa na čísla a iné znaky, iba písmená.
+	- Príklad: `rrrrsr` -> `false`, `rrr r r322r` -> `true`, `123` -> `true`
 ```java
-public boolean hasDuplicateSpaces(String s)
+public boolean hasSameCharacters(String s)
 ```
 
 - Rozhodnite, či zadaný reťazec je palindróm.
@@ -40,10 +40,11 @@ public boolean hasDuplicateSpaces(String s)
 ```java
 public boolean isPalindrome(String s)
 ```		
-- Overí, či sú všetky písmená v reťazci rovnaké. Nevzťahuje sa na čísla a iné znaky, iba písmená.
-	- Príklad: `rrrrsr` -> `false`, `rrr r r322r` -> `true`, `123` -> `true`
+
+- Metóda rozhodne, či zadaný reťazec obsahuje dve medzery idúce za sebou.
+	- Príklad (znak `*` tentokrát pre lepšiu predstavivosť reprezentuje medzeru): `Dve**medzery` -> `true`, `Tri_medzery***` -> `true`, `bezMedzier` -> `false`
 ```java
-public boolean hasSameCharacters(String s)
+public boolean hasDuplicateSpaces(String s)
 ```
 
 - Vytvorte metódu, ktorá vypíše zadaný počet čísel. Počiatočné číslo je 0. Ďalšie číslo sa od predošlého líši o jednu miliardu.
@@ -77,8 +78,24 @@ public char randomChar(String s)
 public String randomName()
 ```
 
+- Majme nejaký dátum, metóda k tomuto dátumu pripočíta 10 rokov. 
+```java
+public ? tenYearsLater(?)
+```
+
 - Načítajte čísla z konzoly a pre každé číslo vypočítajte a vypíšte jeho odmocninu. Načítavanie skončí, keď bude zadané záporné číslo.
 ```java
 public void squareRoots()
 ```
 
+- V poli sa nachádzajú čísla. Metóda všetky hodnoty väčšie ako zadaná `value` nastaví na `value`.
+	- Príklad - `[1, 5, 7, 3, 4]`, `value = 4` -> `[1, 4, 4, 3, 4]`
+```java
+public void reduceBigValues(int[] numbers, int value)
+```
+
+- Pole nevie meniť svoju veľkosť. Vytvorte nové pole, ktoré vznikne z pôvodného pridaním zadanej hodnoty na koniec. Za `T` si dosaďte čokoľvek.
+	- Príklad - `[1, 5, 7, 3]`, `value = 4` -> `[1, 5, 7, 3, 4]`
+```java
+public T[] addToArray(T[] array, T value)
+```
