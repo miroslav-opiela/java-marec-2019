@@ -1,8 +1,14 @@
 package sk.elct;
 
+import java.util.Arrays;
+import java.util.Calendar;
+
 public class App {
 
     public static void main(String[] args) {
+        // ObjectInspector o = new ObjectInspector();
+        // String veta = "dnes je pondelok";
+
         SmartTeddy jozef = new SmartTeddy();
         String song = "Tancuj vykrucaj";
         String teddySong = jozef.sing(song, '*');
@@ -16,7 +22,8 @@ public class App {
 
         System.out.println(jozef.numbersCount("a1bcd87f9"));
 
-        System.out.println(jozef.isPalindrome("abba"));
+        // volanie statickej metody
+        System.out.println(SmartTeddy.isPalindrome("abba"));
         System.out.println(jozef.isPalindromeMystery("abba"));
 
         // vypise referenciu/id/rodne cislo
@@ -38,6 +45,31 @@ public class App {
         // nevieme zavolat lebo je to privatna metoda
         //jozef.randomNumber(0,7);
 
+        System.out.println(jozef.heightsAverage());
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println(jozef.randomName());
+        }
+
+        Kalendar today = new Kalendar();
+        today.year = 2019;
+        today.month = 3;
+        today.day = 28;
+        Kalendar future = jozef.tenYearsLaterCorrect(today);
+        System.out.println(future.year);
+
+        System.out.println("dnes je rok " + today.year);
+
+        Calendar calToday = Calendar.getInstance();
+        System.out.println(calToday.getTime());
+        calToday.add(Calendar.YEAR, 10);
+
+        int[] array = new int[4];
+        array[1] = 1024;
+        System.out.println(array[1]);
+        System.out.println(array);
+
+        System.out.println(Arrays.toString(array));
     }
 
 }
