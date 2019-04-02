@@ -1,6 +1,7 @@
 package sk.elct.movies;
 
 import java.util.*;
+import sk.elct.SmartTeddy;
 
 public class TestApp {
 
@@ -21,7 +22,7 @@ public class TestApp {
             System.out.println(a);
         } catch (NumberFormatException e) {
             System.out.println("zly vstup" + e.getMessage());
-
+            
         }
 
         // set je mnozina - kazdy prvoj je tam len raz
@@ -45,6 +46,28 @@ public class TestApp {
         for (String s : kolekcia) {
             System.out.println(s);
         }
+        
+        Movie alien = new Movie("Alien", 
+                1987, new String[]{"sci-fi"});
+        List<Object> o = new ArrayList<>();
+        o.add("abc");
+        o.add(new SmartTeddy());
+        o.add(new Movie());
+        o.add(alien);
+        o.add(new int[]{1,3,2});
+        System.out.println(o);
+        
+        Movie alien1 = new Movie("Alien", 
+                1987, new String[]{"sci-fi"});
+        Movie alien2 = new Movie("Alien", 
+                1987, new String[]{"sci-fi"});
+        Set<Movie> filmy = new HashSet<>();
+        filmy.add(alien);
+        filmy.add(alien1);
+        filmy.add(alien2);
+        System.out.println(filmy.size());
+        System.out.println(alien.equals(alien1));
+                alien.equals(new int[]{1,2,3});
 
     }
 

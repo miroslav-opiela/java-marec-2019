@@ -57,7 +57,7 @@ public class MovieLibrary {
             for (Movie m : movies) {
                 pw.println(m.toCsvString());
             }
-
+            
         } catch (FileNotFoundException e) {
             System.out.println("neexistujuci subor " + filename);
         }
@@ -75,12 +75,12 @@ public class MovieLibrary {
         MovieLibrary m = new MovieLibrary();
         File file = new File(filename);
         try (Scanner sc = new Scanner(file)) {
-
+            
             // nacitavanie
             while (sc.hasNextLine()) {
                 m.insert(Movie.fromString(sc.nextLine()));
             }
-
+            
         } catch (FileNotFoundException e) {
             System.out.println("Neexistujuci subor " + filename);
         }

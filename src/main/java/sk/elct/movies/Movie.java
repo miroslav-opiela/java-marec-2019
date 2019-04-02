@@ -1,6 +1,7 @@
 package sk.elct.movies;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Movie {
@@ -64,7 +65,7 @@ public class Movie {
     }
 
     public String[] getGenres() {
-//return genres.clone();
+        //return genres.clone();
         return Arrays.copyOf(genres, genres.length);
     }
 
@@ -98,7 +99,7 @@ public class Movie {
             // ak tam nic nie je, tak nastavim zanre ako prazdne pole
             m.setGenres(new String[0]);
         }
-        
+
         return m;
     }
 
@@ -107,7 +108,7 @@ public class Movie {
      *
      * @return
      */
-    public String toCsvString() {
+    public final String toCsvString() {
         StringBuilder sb = new StringBuilder();
         sb.append(title);
         sb.append(";");
@@ -119,6 +120,43 @@ public class Movie {
         }
         sb.deleteCharAt(sb.length() - 1);
         return sb.toString();
+    }
+
+    public String getLocation() {
+        return "unknown location";
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 59 * hash + Objects.hashCode(this.title);
+        hash = 59 * hash + this.year;
+        hash = 59 * hash + Arrays.deepHashCode(this.genres);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Movie other = (Movie) obj;
+        if (this.year != other.year) {
+            return false;
+        }
+        if (!Objects.equals(this.title, other.title)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.genres, other.genres)) {
+            return false;
+        }
+        return true;
     }
 
 }
